@@ -1,0 +1,55 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
+    <div class="register-container bg-white p-12 rounded-2xl max-w-xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] font-sans mx-4 w-full">
+        <h2 class="text-center text-blue-700 text-3xl font-bold mb-8">Cadastro</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <div class="space-y-1">
+                <label for="name" class="block text-blue-800 font-medium text-sm">Nome</label>
+                <input type="text" id="name" formControlName="name" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('name')?.errors && registerForm.get('name')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('name')?.touched">{{ getErrorMessage('name') }}</span>
+            </div>
+            
+            <div class="space-y-1">
+                <label for="email" class="block text-blue-800 font-medium text-sm">E-mail</label>
+                <input type="email" id="email" formControlName="email" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('email')?.errors && registerForm.get('email')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('email')?.touched">{{ getErrorMessage('email') }}</span>
+            </div>
+
+            <div class="space-y-1">
+                <label for="password" class="block text-blue-800 font-medium text-sm">Senha</label>
+                <input type="password" id="password" formControlName="password" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('password')?.errors && registerForm.get('password')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('password')?.touched">{{ getErrorMessage('password') }}</span>
+            </div>
+
+            <div class="space-y-1">
+                <label for="confirmPassword" class="block text-blue-800 font-medium text-sm">Confirmação de Senha</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('confirmPassword')?.touched">{{ getErrorMessage('confirmPassword') }}</span>
+            </div>
+
+            <div class="space-y-1">
+                <label for="city" class="block text-blue-800 font-medium text-sm">Cidade</label>
+                <input type="text" id="city" formControlName="city" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('city')?.errors && registerForm.get('city')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('city')?.touched">{{ getErrorMessage('city') }}</span>
+            </div>
+
+            <div class="space-y-1">
+                <label for="phone" class="block text-blue-800 font-medium text-sm">Número de telefone com DDD</label>
+                <input type="tel" id="phone" formControlName="phone" class="w-full p-3 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" [ngClass]="{'border-red-500': registerForm.get('phone')?.errors && registerForm.get('phone')?.touched}">
+                <span class="text-red-500 text-xs mt-1" *ngIf="registerForm.get('phone')?.touched">{{ getErrorMessage('phone') }}</span>
+            </div>
+
+            <button type="submit" [disabled]="!registerForm.valid" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" [ngClass]="{'opacity-50 cursor-not-allowed': !registerForm.valid, 'hover:from-blue-700 hover:to-blue-800': registerForm.valid}">
+                Cadastrar
+            </button>
+        </form>
+
+        <div class="text-center mt-6">
+            <p class="text-gray-600">
+                Já tem uma conta? 
+                <a routerLink="/login" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-300">
+                    Faça login
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
