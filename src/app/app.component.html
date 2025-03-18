@@ -1,8 +1,0 @@
-<div class="app-container" 
-  [class.sidebar-open]="isSidebarOpen && isAuthenticated"
-  [class.authenticated]="isAuthenticated">
-  <app-sidebar *ngIf="isAuthenticated" (sidebarToggle)="onSidebarToggle($event)"></app-sidebar>
-  <main class="main-content">
-    <router-outlet></router-outlet>
-  </main>
-</div>
